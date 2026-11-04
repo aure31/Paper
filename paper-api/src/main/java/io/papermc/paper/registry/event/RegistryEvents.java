@@ -2,6 +2,7 @@ package io.papermc.paper.registry.event;
 
 import io.papermc.paper.block.pot.PotPatternType;
 import io.papermc.paper.dialog.Dialog;
+import io.papermc.paper.gametest.GameTestInstance;
 import io.papermc.paper.registry.RegistryKey;
 import io.papermc.paper.registry.data.BannerPatternRegistryEntry;
 import io.papermc.paper.registry.data.CatTypeRegistryEntry;
@@ -12,6 +13,7 @@ import io.papermc.paper.registry.data.DecoratedPotPatternRegistryEntry;
 import io.papermc.paper.registry.data.EnchantmentRegistryEntry;
 import io.papermc.paper.registry.data.FrogVariantRegistryEntry;
 import io.papermc.paper.registry.data.GameEventRegistryEntry;
+import io.papermc.paper.registry.data.gametest.GameTestInstanceRegistryEntry;
 import io.papermc.paper.registry.data.InstrumentRegistryEntry;
 import io.papermc.paper.registry.data.JukeboxSongRegistryEntry;
 import io.papermc.paper.registry.data.PaintingVariantRegistryEntry;
@@ -68,6 +70,7 @@ public final class RegistryEvents {
     public static final RegistryEventProvider<ZombieNautilus.Variant, ZombieNautilusVariantRegistryEntry.Builder> ZOMBIE_NAUTILUS_VARIANT = create(RegistryKey.ZOMBIE_NAUTILUS_VARIANT);
     public static final RegistryEventProvider<SulfurCube.Archetype, SulfurCubeArchetypeRegistryEntry.Builder> SULFUR_CUBE_ARCHETYPE = create(RegistryKey.SULFUR_CUBE_ARCHETYPE);
     public static final RegistryEventProvider<Dialog, DialogRegistryEntry.Builder> DIALOG = create(RegistryKey.DIALOG);
+    public static final RegistryEventProvider<GameTestInstance, GameTestInstanceRegistryEntry.Builder> TEST_INSTANCE = create(RegistryKey.TEST_INSTANCE);
     // End generate - RegistryEvents
 
     private RegistryEvents() {

@@ -4,6 +4,8 @@ import io.papermc.paper.block.pot.PotPatternType;
 import io.papermc.paper.datacomponent.DataComponentType;
 import io.papermc.paper.dialog.Dialog;
 import io.papermc.paper.entity.poi.PoiType;
+import io.papermc.paper.gametest.GameTestEnvironment;
+import io.papermc.paper.gametest.GameTestInstance;
 import io.papermc.paper.registry.tag.TagKey;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.key.KeyPattern;
@@ -269,6 +271,16 @@ public sealed interface RegistryKey<T> extends Keyed permits RegistryKeyImpl {
      * @see io.papermc.paper.registry.keys.DialogKeys
      */
     RegistryKey<Dialog> DIALOG = create("dialog");
+    /**
+     * Data-driven registry for game test instance.
+     * @see io.papermc.paper.registry.keys.GameTestInstanceKeys
+     */
+    RegistryKey<GameTestInstance> TEST_INSTANCE = create("test_instance");
+    /**
+     * Data-driven registry for game test environment.
+     * @see io.papermc.paper.registry.keys.TestEnvironmentDefinitionKeys
+     */
+    RegistryKey<GameTestEnvironment> TEST_ENVIRONMENT = create("test_environment");
 
 
     /* ******************* *
