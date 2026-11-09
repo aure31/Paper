@@ -2,7 +2,7 @@ package io.papermc.paper.registry.data.gametest;
 
 import io.papermc.paper.gametest.GameTestEnvironment;
 import io.papermc.paper.gametest.GameTestInstance;
-import io.papermc.paper.gametest.TestHelper;
+import io.papermc.paper.gametest.GameTestHelper;
 import io.papermc.paper.registry.RegistryBuilder;
 import io.papermc.paper.registry.data.PigVariantRegistryEntry;
 import org.bukkit.Rotation;
@@ -10,6 +10,7 @@ import org.bukkit.structure.Structure;
 import org.checkerframework.checker.index.qual.NonNegative;
 import org.checkerframework.checker.index.qual.Positive;
 import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Contract;
 import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 import java.util.function.Consumer;
@@ -18,14 +19,7 @@ import java.util.function.Consumer;
 @ApiStatus.NonExtendable
 public interface GameTestInstanceRegistryEntry {
 
-    enum Type {
-
-        BLOCK_BASED,
-
-        FUNCTION
-    }
-
-    Type type();
+    GameTestInstance.Type type();
 
     GameTestEnvironment environment();
 
@@ -53,12 +47,13 @@ public interface GameTestInstanceRegistryEntry {
 
     @NonNegative int padding();
 
-    @Nullable Consumer<TestHelper> function();
+    @Nullable Consumer<GameTestHelper> function();
 
     @ApiStatus.NonExtendable
-    interface Builder extends PigVariantRegistryEntry, RegistryBuilder<GameTestInstance> {
+    interface Builder extends GameTestInstanceRegistryEntry, RegistryBuilder<GameTestInstance> {
 
-        Builder type(Type type);
+        @Contract(value = "_ -> this", mutates = "this")
+        Builder type(GameTestInstance.Type type);
 
         Builder environment(GameTestEnvironment environment);
 
@@ -86,7 +81,7 @@ public interface GameTestInstanceRegistryEntry {
 
         Builder padding(@NonNegative int padding);
 
-        Builder function(@Nullable Consumer<TestHelper> function);
+        Builder function(@Nullable Consumer<GameTestHelper> function);
 
     }
 }
